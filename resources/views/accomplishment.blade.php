@@ -7,7 +7,7 @@
         }
 
         body {
-            background-image: url("{{ asset('/img/ACCOMPLISHMENT-REPORT-01.jpg') }}");
+            background-image: url("{{ public_path('img/ACCOMPLISHMENT-REPORT-01.jpg') }}");
             background-size: cover;
             background-repeat: no-repeat;
             padding-top: 10%;
