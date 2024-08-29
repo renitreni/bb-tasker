@@ -55,9 +55,10 @@ class ReportResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('invoice_date', 'desc')
             ->columns([
+                TextColumn::make('invoice_date')->sortable(),
                 TextColumn::make('title'),
-                TextColumn::make('invoice_date'),
                 TextColumn::make('due_date'),
                 TextColumn::make('details_sum_hours_spent')->sum('details', 'hours_spent'),
             ])
