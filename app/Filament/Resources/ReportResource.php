@@ -10,8 +10,11 @@ use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Resources\RelationManagers\RelationGroup;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -40,15 +43,17 @@ class ReportResource extends Resource
                         TextInput::make('account_number')->columnSpan(1)->required(),
                         TextInput::make('bank_name')->columnSpan(1)->required(),
                         TextInput::make('bank_address')->columnSpan(1)->required(),
+                        TextInput::make('report_name')->columnSpan(1)->required(),
+                        TextInput::make('project_name')->columnSpan(1)->required(),
+                        TextInput::make('project_handled')->columnSpan(1)->required(),
                     ]),
-                    Grid::make()
-                        ->columns(3)
-                        ->schema([
-
-                            RichEditor::make('bill_from'),
-                            RichEditor::make('bill_to'),
-                            RichEditor::make('terms_condition'),
-                        ])
+                Grid::make()
+                    ->columns(3)
+                    ->schema([
+                        RichEditor::make('bill_from'),
+                        RichEditor::make('bill_to'),
+                        RichEditor::make('terms_condition'),
+                    ])
             ]);
     }
 
@@ -80,9 +85,7 @@ class ReportResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            DetailRelationManager::class
-        ];
+        return [];
     }
 
     public static function getPages(): array

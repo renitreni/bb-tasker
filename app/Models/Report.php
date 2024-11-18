@@ -23,7 +23,10 @@ class Report extends Model
         'account_number',
         'bank_name',
         'bank_address',
-        'terms_condition'
+        'terms_condition',
+        'report_name',
+        'project_name',
+        'project_handled'
     ];
 
     protected $casts = [

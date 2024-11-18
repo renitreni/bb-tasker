@@ -19,9 +19,7 @@ class EditReport extends EditRecord
         return [
             Action::make('Accomplishments')
                 ->action(function ($record) {
-                    return response()->streamDownload(function () use ($record) {
-                        echo Pdf::loadView('accomplishment',['record' => $record->load('details')])->setPaper('a4', 'landscape')->stream();
-                    }, 'ACCOMPLISHMENTS '. $record->title . '.pdf');
+                    return redirect()->route('accomplishment', ['record' => $record->load('details')->toArray()]);
                 }),
             Action::make('Billing')
                 ->action(function ($record) {

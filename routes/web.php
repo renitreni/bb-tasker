@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PpdfViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect()->route('filament.admin.auth.login');
+});
+
+Route::get('/accomplishment', [PpdfViewController::class, 'accomplishment'])->name('accomplishment');
+
+Route::get('/accomplishment-render', function () {
+    return view('accomplishment');
 });

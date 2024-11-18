@@ -7,12 +7,10 @@
         }
 
         body {
-            /* background-image: url("{{ asset('/img/accomplishment-image.jpg') }}"); */
-            /* background-size: cover;
-            background-repeat: no-repeat; */
             padding-top: 10%;
             padding-left: 5%;
             padding-right: 5%;
+            font-family: 'Poppins';
         }
 
         .td-task,
@@ -64,7 +62,9 @@
     </section>
 
     <section>
-        <p><strong>PROJECTS:</strong></p>
+        <p>PROJECT HANDLED:</p>
+        <p>PROJECT MANAGER:</p>
+
         <table class="td-task" style="width: 100%; text-align: center;border: px solid black;">
             <tbody>
                 <tr>
@@ -89,23 +89,25 @@
                     <tr>
                         <td style="width: 12.7622%;">{{ $key + 1 }}</td>
                         <td style="width: 53.7879%;">{{ $detail->task_name }}</td>
-                        <td style="width: 33.3333%;">{{ $detail->hours_spent }} hrs.</td>
+                        <td style="width: 33.3333%;">{{ $detail->hours_spent * 300 }}</td>
                     </tr>
                     @php
-                        $totalSum += $detail->hours_spent;
+                        $totalSum += $detail->hours_spent * 300;
                     @endphp
                 @endforeach
                 <tr>
                     <td style="width: 12.7622%; border: 1px solid rgb(255, 255, 255);"></td>
-                    <td style="width: 53.7879%; border: 1px solid rgb(255, 255, 255); text-align: right;">Sub-total:<br>
+                    <td style="width: 53.7879%; border: 1px solid rgb(255, 255, 255); text-align: right;">
+                        Sub-total:<br>
                     </td>
                     <td style="width: 33.3333%; border: 1px solid rgb(230, 145, 56);">{{ $totalSum }}</td>
                 </tr>
                 <tr>
                     <td style="width: 12.7622%; border: 1px solid rgb(255, 255, 255);"></td>
-                    <td style="width: 53.7879%;border: 1px solid rgb(255, 255, 255); text-align: right;">Total:<br></td>
+                    <td style="width: 53.7879%;border: 1px solid rgb(255, 255, 255); text-align: right;">Total:<br>
+                    </td>
                     <td style="width: 33.3333%; background-color: rgb(230, 145, 56);">
-                        {{ Number::format($totalSum * 300) }}</td>
+                        {{ Number::format($totalSum) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -140,14 +142,16 @@
             <span style="font-family:Aparajita;color:rgb(63,63,63);font-size:15px;">:
                 {{ $record->bank_name }}</span><br>
             <span style="font-family:Aparajita;color:rgb(63,63,63);font-size:15px;">Bank Address</span>
-            <span style="font-family:Aparajita;color:rgb(63,63,63);font-size:15px;">: {{ $record->bank_address }}</span>
+            <span style="font-family:Aparajita;color:rgb(63,63,63);font-size:15px;">:
+                {{ $record->bank_address }}</span>
         </p>
     </section>
     <section>
         <p style="text-align:center;line-height:114%;"><span dir="LTR"
                 style="font-family:'Times New Roman';font-size:15px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
-        <p style="line-height:114%;"><span dir="LTR" style="font-family:'Times New Roman';font-size:15px;">&nbsp;
+        <p style="line-height:114%;"><span dir="LTR"
+                style="font-family:'Times New Roman';font-size:15px;">&nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp;&nbsp;</span><strong><span dir="LTR"
                     style="font-family:'Times New Roman';font-size:15px;">&nbsp; &nbsp; &nbsp; IC&rsquo;s
@@ -192,8 +196,9 @@
                             <p
                                 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-indent:0.0000pt;">
                                 <span dir="LTR"
-                                        style="font-family:Aparajita;font-size:13px;">&nbsp;</span></strong><strong><span
-                                        dir="LTR" style="font-family:Aparajita;font-size:13px;">Approved number of
+                                    style="font-family:Aparajita;font-size:13px;">&nbsp;</span></strong><strong><span
+                                        dir="LTR" style="font-family:Aparajita;font-size:13px;">Approved number
+                                        of
                                         days:</span></strong>
                             </p>
                         </td>
