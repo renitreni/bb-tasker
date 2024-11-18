@@ -38,6 +38,9 @@
         }
         .task-list td {
             font-size: 12px;
+        }        
+        .task-list th {
+            font-size: 14px;
         }
         .signatures table {
             margin-top: 50px;
@@ -92,9 +95,9 @@
                 <tbody>
                     @foreach ($details as $detail)
                         <tr>
-                            <td>{{ $detail['task_name']}}</td>
+                            <td style="text-align: center; max-width: 120px; word-wrap: break-word;">{{ $detail['task_name']}}</td>
                             <td>{{ $detail['status']}}</td>
-                            <td style="text-align: center;"><a href="{{ $detail['task_link']}}" target="_blank">Link</a></td>
+                            <td style="text-align: center; max-width: 120px; word-wrap: break-word;">{{ $detail['task_link']}}</td>
                             <td>{{ $detail['hours_spent']}}</td>
                             <td>{{ \Carbon\Carbon::parse($detail['record_date'])->format('Y-m-d') }}</td>
                             <td></td>

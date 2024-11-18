@@ -13,6 +13,6 @@ class PpdfViewController extends Controller
 
         $pdf = Pdf::loadView('accomplishment', $request['record'])->setPaper('a4', 'landscape');
         
-        return $pdf->stream($request['record']['title']);
+        return $pdf->stream($request['record']['title'] . '.pdf');
     }
 }
